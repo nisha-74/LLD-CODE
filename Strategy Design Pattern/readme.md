@@ -108,3 +108,43 @@ Different UI themes/layouts dynamically.
 Payment gateways (like above).
 
 Sorting/search strategies.
+
+🔹 Strategy Pattern UML
+
+             +---------------------+
+             |      Strategy       |  <<interface>>
+             |---------------------|
+             | + execute()         |
+             +---------------------+
+                      ^
+                      |
+    ----------------------------------------
+    |                  |                   |
++----------------+  +----------------+  +----------------+
+| ConcreteStratA |  | ConcreteStratB |  | ConcreteStratC |
+|----------------|  |----------------|  |----------------|
+| + execute()    |  | + execute()    |  | + execute()    |
++----------------+  +----------------+  +----------------+
+
+             +---------------------+
+             |       Context       |
+             |---------------------|
+             | - strategy:Strategy |
+             |---------------------|
+             | + setStrategy()     |
+             | + doWork()          |
+             +---------------------+
+
+
+
+             
+             🔹 Explanation:
+
+Strategy → Interface (defines a common method, e.g., pay() or execute())
+
+Concrete Strategies → Different implementations of the strategy (e.g., CreditCardPayment, UPIPayment)
+
+Context → Uses a Strategy object and can switch it dynamically (setPaymentStrategy())
+
+
+
